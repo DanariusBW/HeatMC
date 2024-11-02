@@ -1,0 +1,18 @@
+# Versao fake isso e mostrado a frente dos slots pode ser usado como 3° linha para o motd
+fakeVersion:
+  ligado: false
+  versions:
+  - "&eVenha jogar"
+  - "&eYou server?"
+
+# Motd aleatorio cada vez que o jogador atualizar a lista ira aparecer um
+motds:
+- "                &b&lHEATMC &7» &6&oBedWars&r{newline}              &a&lVENHA JOGAR CONOSCO!"
+
+# Lista de jogadores mostrados quando se passa o mouse em cima dos slots
+playerList:
+  ligado: false
+  fakePlayers:
+  - "Servidor de ?"
+  - "Entre ja"
+  - "Estamos esprando por voce"

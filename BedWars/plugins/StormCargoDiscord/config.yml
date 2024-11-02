@@ -1,0 +1,176 @@
+#  _____ _______ ____  _____  __  __  _____          _____   _____  ____  _____ _____  _____  _____ ____  _____  _____
+# / ____|__   __/ __ \|  __ \|  \/  |/ ____|   /\   |  __ \ / ____|/ __ \|  __ \_   _|/ ____|/ ____/ __ \|  __ \|  __ \
+#| (___    | | | |  | | |__) | \  / | |       /  \  | |__) | |  __| |  | | |  | || | | (___ | |   | |  | | |__) | |  | |
+# \___ \   | | | |  | |  _  /| |\/| | |      / /\ \ |  _  /| | |_ | |  | | |  | || |  \___ \| |   | |  | |  _  /| |  | |
+# ____) |  | | | |__| | | \ \| |  | | |____ / ____ \| | \ \| |__| | |__| | |__| || |_ ____) | |___| |__| | | \ \| |__| |
+#|_____/   |_|  \____/|_|  \_\_|  |_|\_____/_/    \_\_|  \_\\_____|\____/|_____/_____|_____/ \_____\____/|_|  \_\_____/
+#
+# Desenvolvedor: Domeneghi
+# Discord: Domeneghi#5371
+# Versão: 1.0
+# Site: https://stormplugins.com
+#
+# Permissões:
+# - stormplugins.cargodiscord.vincular (/vinculardiscord)
+# - stormplugins.cargodiscord.atualizarcargos (/atualizarcargos)
+# - stormplugins.cargodiscord.desvincular (/desvincular)
+#
+
+#Configurações do MySQL (necessário)
+MySQL:
+  # false = usar SQLite
+  # true = usar MySQL
+  ativado: true
+  #Usar o MySQL Hikari? (pode consumir mais cpu)
+  hikari: false
+  host: eu2-free.falixserver.net
+  port: 3306
+  user: u1513060_S14iMwBzGb
+  db: s1513060_bccbfbb0e705
+  pass: "D1@5Iboe1ZuFPM=30t8.bRuU"
+  #Configurações avançadas
+  usar_url: false
+  url: "jdbc:mysql://localhost:3306/lobby?autoReconnect=true"
+
+#Configurações gerais
+Geral:
+  #Enviar um aviso ao entrar se o jogador não possuir uma conta do discord vinculada ainda
+  avisar_sem_conta_vinculada: true
+  #Comando
+  comando_vincular:
+    comando: "vinculardiscord"
+    aliases: ["vinculardc", "discordvincular", "dcvincular", "vincularconta", "contavincular", "vincular", "linkdiscord", "discordlink", "linkdc", "dclink", "link", "linkaccount", "accountlink"]
+  #true - dar todos os cargos que o jogador possui permissão | false - dar somente o cargo com maior prioridade que o jogador possui permissão
+  dar_somente_cargo_maior_prioridade: false
+  #Link do servidor do Discord
+  link_discord: "https://discord.gg/rK6yuSFb94"
+  #Comandos que serão executados ao vincular uma conta pela primeira vez
+  #Exemplo:
+  #comandos_vincular:
+  # - "give %jogador% diamond 1"
+  comandos_vincular: []
+
+#Gere o token do seu bot aqui: https://discordpy.readthedocs.io/en/latest/discord.html | Tutorial: https://www.youtube.com/watch?v=v1SEoEklons
+Discord:
+  bot_token: "MTMwMjA0OTM3MTgzMTAwOTM4Mw.GW0JJM.Oeqg-7wknOM-j0x0a15M1mnU76MfWMmuv4bIOc"
+  #Caso não queira, use "" ou "nulo"
+  bot_status: "Sistema de Vincular!"
+  guild_id: "1295484761715904564"
+  embeds:
+    vincular:
+      titulo: "**Pedido de vinculação de conta**"
+      descricao: "\n \nOlá %discord%, \n \nPara completar a verificação, clique em :white_check_mark:"
+      cor: "#00ffff"
+      thumbnail: "nulo"
+      footer: "%data%"
+      fields:
+        1:
+          nome: "**Jogador**"
+          valor: "%jogador%"
+          inline: false
+    negou_vincular:
+      titulo: "**Pedido de vinculação negado**"
+      descricao: "\n \nOlá %discord%, \n \nVocê negou o pedido de vinculação de conta do jogador %jogador%"
+      cor: "#ff0000"
+      thumbnail: "nulo"
+      footer: "%data%"
+      fields: []
+    aprovou_vincular:
+      titulo: "**Pedido de vinculação aceito**"
+      descricao: "\n \nOlá %discord%, \n \nSua conta do Discord foi vinculada ao jogador %jogador%"
+      cor: "#008000"
+      thumbnail: "nulo"
+      footer: "%data%"
+      fields: []
+
+#Cargos (adicione quantos quiser)
+Cargos:
+  #Coloque aqui EXATAMENTE o nome do grupo que está no plugins de permissões (LuckPerms ou PermissionsEx)
+  vip:
+    cargo: "ID DO CARGO DO DISCORD"
+    permissao: "tag.vip"
+    prioridade: 1
+    #Definir o nickname no Discord (não funcionará para quem tiver permissão de Administrador no Discord)
+    sincronizar_nick:
+      ativado: false
+      nick: "[VIP] %jogador%"
+  #Coloque aqui EXATAMENTE o nome do grupo que está no plugins de permissões (LuckPerms ou PermissionsEx)
+  master:
+    cargo: "ID DO CARGO DO DISCORD"
+    permissao: "tag.master"
+    prioridade: 2
+    #Definir o nickname no Discord (não funcionará para quem tiver permissão de Administrador no Discord)
+    sincronizar_nick:
+      ativado: false
+      nick: "[MASTER] %jogador%"
+
+#Configurações dos menus
+Menus:
+  #Caso queria desativar algum item, coloque -1 no slot
+  vincular:
+    titulo: "Conta do Discord"
+    linhas: 3
+    itens:
+      perfil:
+        slot: 13
+        nome: "&aMinha conta"
+        #Caso queira usar uma cabeça, coloque a texture da cabeça aqui
+        #Caso queira pegar a cabeça do jogador, coloque %jogador% aqui
+        item: "%jogador%"
+        lore_sem_conta:
+          - ""
+          - " &fConta vinculada: &7Nenhuma"
+          - ""
+          - "&aClique para vincular sua conta"
+        lore_com_conta:
+          - ""
+          - " &fConta vinculada: &7%conta%"
+          - " &fData da vinculação: &7%data%"
+          - ""
+          - " &eOpções disponíveis:"
+          - "  &e▎ &fBotão esquerdo: &7alterar conta"
+          - "  &e▎ &fBotão direito: &7remover conta"
+      discord_servidor:
+        slot: 15
+        nome: "&aDiscord do servidor"
+        #Caso queira usar uma cabeça, coloque a texture da cabeça aqui
+        #Caso queira pegar a cabeça do jogador, coloque %jogador% aqui
+        item: "7873c12bffb5251a0b88d5ae75c7247cb39a75ff1a81cbe4c8a39b311ddeda"
+        lore:
+          - "&7Clique para entrar no Discord do servidor"
+
+#Configurações das mensagens
+Mensagens:
+  sem_permissao: "&cVocê precisa do cargo &aVip &cou superior para isso."
+  sem_permissao_atualizar_cargos: "&cVocê precisa do cargo &4Gerente &cou superior para isso."
+  sem_permissao_desvincular: "&cVocê precisa do cargo &4Gerente &cou superior para isso."
+  aviso_sem_conta:
+    - " "
+    - " &c&lDISCORD"
+    - " &fDetectamos que você ainda não vinculou sua conta."
+    - " &fÉ recomendado que você vincule sua conta utilizando &e'/vinculardiscord'&f."
+    - " "
+  operacao_cancelada: "&cA operação foi cancelada."
+  conta_nao_encontrada: "&cOps! Essa conta do Discord não foi encontrada."
+  nao_esta_no_discord: "&cCalma aí! Você precisa estar em nosso servidor do Discord para vincular sua conta."
+  aprovar_conta:
+    - " "
+    - " &e&lVINCULAR CONTA"
+    - " &fVerifique sua DM para completar a verificação."
+    - " &fA verificação irá expirar em 60 segundos."
+    - " "
+  dm_bloqueada: "&cOps! Sua DM do Discord não está aberta para receber mensagens."
+  vinculacao_negada: "&cQue pena! O pedido de vinculação de conta foi negado."
+  vinculacao_aprovada: "&aYeah! O pedido de vinculação de conta foi aceito."
+  discord_servidor: "&eAcesse nosso servidor do Discord em: &f%discord%"
+  conta_removida: "&aYeah! Sua conta do Discord foi removida com sucesso."
+  ja_esta_vinculando: "&cCalma aí! Você já está vinculando sua conta no momento."
+  vincular:
+    - " "
+    - " &e&lVINCULAR CONTA"
+    - " &fDigite no chat o &eid &fda sua conta do Discord."
+    - " &fCaso queria cancelar, digite &c'cancelar'&f."
+    - " "
+  jogador_nao_encontrado: "&cOps! Este jogador não foi encontrado."
+  nao_possui_conta: "&cOps! Este jogador não possui uma conta vinculada."
+  conta_ja_e_essa: "&cCalma aí! Esta conta já está vinculada a você."

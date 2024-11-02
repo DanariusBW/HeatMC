@@ -1,0 +1,12 @@
+database:
+ tipo: 'MySQL'
+ mysql:
+  hikari: false
+  mariadb: false
+  host: 'eu2-free.falixserver.net'
+  porta: '3306'
+  nome: 's1513060_bccbfbb0e705'
+  usuario: 'u1513060_S14iMwBzGb'
+  senha: 'D1@5Iboe1ZuFPM=30t8.bRuU'
+ mongodb:
+   url: ''

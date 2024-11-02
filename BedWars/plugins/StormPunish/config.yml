@@ -1,0 +1,664 @@
+#  _____ _______ ____  _____  __  __ _____  _    _ _   _ _____  _____ _    _
+# / ____|__   __/ __ \|  __ \|  \/  |  __ \| |  | | \ | |_   _|/ ____| |  | |
+#| (___    | | | |  | | |__) | \  / | |__) | |  | |  \| | | | | (___ | |__| |
+# \___ \   | | | |  | |  _  /| |\/| |  ___/| |  | | . ` | | |  \___ \|  __  |
+# ____) |  | | | |__| | | \ \| |  | | |    | |__| | |\  |_| |_ ____) | |  | |
+#|_____/   |_|  \____/|_|  \_\_|  |_|_|     \____/|_| \_|_____|_____/|_|  |_|
+#
+# Desenvolvedor: Domeneghi
+# Discord: Domeneghi#5371
+# Versão: 1.0.1
+# Site: https://stormplugins.com
+#
+# Permissões:
+# - stormplugins.punish.ban (/ban)
+# - stormplugins.punish.banip (/banip)
+# - stormplugins.punish.tempban (/tempban)
+# - stormplugins.punish.tempbanip (/tempbanip)
+# - stormplugins.punish.mute (/mute)
+# - stormplugins.punish.tempmute (/tempmute)
+# - stormplugins.punish.unpunish (/despunir)
+# - stormplugins.punish.kick (/kick)
+# - stormplugins.punish.punicoes (/punicoes)
+# - stormplugins.punish.punir (/punir)
+# - stormplugins.punish.warn (/aviso)
+# - stormplugins.punish.reports (/reports e visualizar os reports)
+# - stormplugins.punish.provas.bypass (não precisar de provas para punir)
+# - stormplugins.punish.change.reason (alterar motivo da punição)
+# - stormplugins.punish.change.evidence (alterar prova da punição)
+#
+
+#Configurações do MySQL (necessário)
+MySQL:
+  #Usar o MySQL Hikari? (pode consumir mais cpu)
+  hikari: false
+  host: eu2-free.falixserver.net
+  port: 3306
+  user: u1513060_S14iMwBzGb
+  db: s1513060_bccbfbb0e705
+  pass: "D1@5Iboe1ZuFPM=30t8.bRuU"
+  #Configurações avançadas
+  usar_url: false
+  url: "jdbc:mysql://localhost:3306/lobby?autoReconnect=true"
+
+#Configurações gerais
+Geral:
+  #Se você está utilizando BungeeCord
+  bungeecord: false
+  #Tempo da mensagem de punidos em minutos (Use -1 para desativar essa mensagem)
+  tempo_mensagem_punidos: 60
+  #Comandos bloqueados quando o jogador está mutado
+  comandos_bloqueados_mutado:
+    - "/g"
+    - "/tell"
+    - "/l"
+    - "/r"
+  #Anúncios no chat
+  anunciar_ban: true
+  anunciar_despunir: true
+  anunciar_mute: true
+  anunciar_aviso: false
+  #Sons ao aplicar a punição (use o nome do som ou nulo para desativar)
+  som_ban: "nulo"
+  som_despunir: "nulo"
+  som_mute: "nulo"
+  som_aviso: "nulo"
+  #Nicks que não podem ser punidos
+  nicks_nao_podem_ser_punidos:
+    - ""
+  #Máximo de avisos até o jogador ser punido pelo motivo do aviso
+  maximo_avisos: 3
+  #Exir provas nas punições realizadas pelos comandos? (Ex: /banir, /tempban, /mutar, /tempmute, /banip, /tempbanip)
+  exigir_provas_comandos: true
+  #Ativar o sistema de reports
+  reports: true
+  #Sistema de reportar com livro?
+  reports_livro: true
+  #Tempo para enviar outro report em segundos
+  tempo_repotar: 180
+  #Configurações do livro de denunciar
+  livro_denunciar:
+    motivos_por_pagina: 7
+    titulo: "Denunciar %jogador%:\n\n"
+    motivo: " &l❂ &0%motivo%\n"
+    hover: "&7Clique para denunciar o jogador por %motivo%."
+  #Contabilizar punições expiradas na mensagem de punidos
+  contabilizar_expiradas: true
+  #Nome do author que irá aparecer ao ser punido pelo console
+  nome_console: "Console"
+  #Motivos que não irão aparecer no /aviso
+  motivos_desativados_avisos:
+    - "Hack"
+    - "Estorno_de_pagamento"
+    - "Negou_tela"
+    - "Hack_no_pc"
+
+#Gere o token do seu bot aqui: https://discordpy.readthedocs.io/en/latest/discord.html | Tutorial: https://www.youtube.com/watch?v=v1SEoEklons
+#chat_id: Você vai precisar ativar o modo de desenvolvedor em seu Discord para visualizar o id do canal de banimentos do seu servidor
+Discord:
+  ativado: false
+  bot_token: "MTMwMjA1MjcxMzUwNDE3ODMyNw.GPIbL6.Pcxhq31lPlZIvp7tocf6LysNnDdtS5jOyLB1Z0"
+  #Caso não queira, use "" ou "nulo"
+  bot_status: "Sistema de Punições!"
+  #Id do canal de punições
+  chat_id_punicoes: "1297670241651916900"
+  #Id do canal de avisos
+  chat_id_avisos: "1297670241651916900"
+  #Id do canal de denúncias/reports
+  chat_id_denuncias: "1297670241651916900"
+  #Anúncios no canal de punições
+  anunciar_ban: true
+  anunciar_despunir: true
+  anunciar_mute: true
+  anunciar_aviso: true
+  anunciar_denuncias: true
+  embeds:
+    punicao:
+      titulo: ":no_entry_sign: **Nova punição**"
+      cor: "#ff0000"
+      thumbnail: "https://minotar.net/helm/%jogador%/100.png"
+      footer: "%data%"
+      fields:
+        1:
+          nome: "**ID**"
+          valor: "#%id%"
+          inline: true
+        2:
+          nome: "**Servidor**"
+          valor: "%servidor%"
+          inline: true
+        3:
+          nome: "**Jogador**"
+          valor: "%jogador%"
+          inline: true
+        4:
+          nome: "**Autor**"
+          valor: "%autor%"
+          inline: true
+        5:
+          nome: "**Motivo**"
+          valor: "%motivo%"
+          inline: false
+        6:
+          nome: "**Prova**"
+          valor: "%prova%"
+          inline: false
+        7:
+          nome: "**Tipo**"
+          valor: "%tipo%"
+          inline: true
+        8:
+          nome: "**Término**"
+          valor: "%expira%"
+          inline: true
+    despunir:
+      titulo: ":no_entry: **Punição revogada**"
+      cor: "#00cc00"
+      thumbnail: "https://minotar.net/helm/%jogador%/100.png"
+      footer: "%data%"
+      fields:
+        1:
+          nome: "**ID**"
+          valor: "#%id%"
+          inline: true
+        2:
+          nome: "**Servidor**"
+          valor: "%servidor%"
+          inline: true
+        3:
+          nome: "**Jogador**"
+          valor: "%jogador%"
+          inline: true
+        4:
+          nome: "**Autor**"
+          valor: "%autor%"
+          inline: true
+        5:
+          nome: "**Tipo**"
+          valor: "%tipo%"
+          inline: false
+    aviso:
+      titulo: ":no_entry_sign: **Novo aviso**"
+      cor: "#ff6600"
+      thumbnail: "https://minotar.net/helm/%jogador%/100.png"
+      footer: "%data%"
+      fields:
+        1:
+          nome: "**ID**"
+          valor: "#%id%"
+          inline: true
+        2:
+          nome: "**Servidor**"
+          valor: "%servidor%"
+          inline: true
+        3:
+          nome: "**Jogador**"
+          valor: "%jogador%"
+          inline: true
+        4:
+          nome: "**Autor**"
+          valor: "%autor%"
+          inline: true
+        5:
+          nome: "**Motivo**"
+          valor: "%motivo%"
+          inline: false
+        6:
+          nome: "**Prova**"
+          valor: "%prova%"
+          inline: false
+        7:
+          nome: "**Aviso**"
+          valor: "#%numero%/%maximo%"
+          inline: true
+        8:
+          nome: "**Primeiro aviso**"
+          valor: "%primeiro%"
+          inline: true
+        9:
+          nome: "**Último aviso**"
+          valor: "%ultimo%"
+          inline: true
+    denuncia:
+      titulo: ":no_entry_sign: **Nova denúncia**"
+      cor: "#ff0000"
+      thumbnail: "https://minotar.net/helm/%jogador%/100.png"
+      footer: "%data%"
+      fields:
+        1:
+          nome: "**ID**"
+          valor: "#%id%"
+          inline: true
+        2:
+          nome: "**Servidor**"
+          valor: "%servidor%"
+          inline: true
+        3:
+          nome: "**Jogador**"
+          valor: "%jogador%"
+          inline: true
+        4:
+          nome: "**Autor**"
+          valor: "%autor%"
+          inline: true
+        5:
+          nome: "**Motivo**"
+          valor: "%motivo%"
+          inline: false
+        6:
+          nome: "**Primeira denúncia**"
+          valor: "%primeira%"
+          inline: true
+        7:
+          nome: "**Última denúncia**"
+          valor: "%ultima%"
+          inline: true
+
+#Configurações dos servidores (só será ativado se o modo BungeeCord estiver ativado)
+Servidores:
+  lobby:
+    #Nome do servidor na config do BungeeCord
+    servidor: "lobby"
+    #Não use cores
+    nome: "Lobby"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "891430f386468e9fae98465b4ccc5fcfb5cb1e4397e6e8a3436ba52f8cb5030"
+  rankup:
+    #Nome do servidor na config do BungeeCord
+    servidor: "rankup"
+    #Não use cores
+    nome: "RankUP"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "63d02cdc075bb1cc5f6fe3c7711ae4977e38b910d50ed6023df73913e5e7fcff"
+
+#Configurações dos motivos para punições
+#Tipos disponíveis: BAN, BAN_IP, TEMP_BAN, TEMP_BAN_IP, MUTE, TEMP_MUTE
+Motivos:
+  Hack:
+    nome: "Uso de hack"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: BAN_IP
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.banip"
+    provas_necessarias: true
+  Bugs:
+    nome: "Abuso de bugs"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: BAN_IP
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.banip"
+    provas_necessarias: true
+  Roubo:
+    nome: "Roubo"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: BAN_IP
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.banip"
+    provas_necessarias: true
+  Ameaca:
+    nome: "Ameaça"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: BAN_IP
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.banip"
+    provas_necessarias: true
+  Divulgacao_grave:
+    nome: "Divulgação grave"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: BAN
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.ban"
+    provas_necessarias: true
+  Estorno_de_pagamento:
+    nome: "Estorno de pagamento"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: BAN_IP
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.banip"
+    provas_necessarias: true
+  Conta_fake:
+    nome: "Conta fake"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: BAN_IP
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.banip"
+    provas_necessarias: true
+  Negou_tela:
+    nome: "Negou tela"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: BAN_IP
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.banip"
+    provas_necessarias: true
+  Hack_no_pc:
+    nome: "Hack no PC"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: TEMP_BAN
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.tempban"
+    provas_necessarias: true
+    #Duração no formato: '1d ou 1h ou 1m'
+    #Use 0 para um banimento permanente
+    #A duração não fará efeito nos tipos BAN, BANIP e MUTE (serão sempre permanentes)
+    duracao: "1d"
+  Divulgacao_simples:
+    nome: "Divulgação simples"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: TEMP_BAN
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.tempban"
+    provas_necessarias: true
+    #Duração no formato: '1d ou 1h ou 1m'
+    #Use 0 para um banimento permanente
+    #A duração não fará efeito nos tipos BAN, BANIP e MUTE (serão sempre permanentes)
+    duracao: "1d"
+  Ofensa_servidor:
+    nome: "Ofensa ao servidor"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: TEMP_BAN
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.tempban"
+    provas_necessarias: true
+    #Duração no formato: '1d ou 1h ou 1m'
+    #Use 0 para um banimento permanente
+    #A duração não fará efeito nos tipos BAN, BANIP e MUTE (serão sempre permanentes)
+    duracao: "3d"
+  Ofensa_staff:
+    nome: "Ofensa a staff"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: BAN_IP
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.banip"
+    provas_necessarias: true
+  Xingamentos:
+    nome: "Xingamentos (tóxico)"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: MUTE
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.mute"
+    provas_necessarias: true
+  Anti_jogo_chat:
+    nome: "Anti-jogo (chat)"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: TEMP_MUTE
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.tempmute"
+    provas_necessarias: true
+    #Duração no formato: '1d ou 1h ou 1m'
+    #Use 0 para um banimento permanente
+    #A duração não fará efeito nos tipos BAN, BANIP e MUTE (serão sempre permanentes)
+    duracao: "12h"
+  Flood_spam:
+    nome: "Flood/spam"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: TEMP_MUTE
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.tempmute"
+    provas_necessarias: true
+    #Duração no formato: '1d ou 1h ou 1m'
+    #Use 0 para um banimento permanente
+    #A duração não fará efeito nos tipos BAN, BANIP e MUTE (serão sempre permanentes)
+    duracao: "3h"
+  Iniciativa_flood:
+    nome: "Iniciativa de flood"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: TEMP_MUTE
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.tempmute"
+    provas_necessarias: true
+    #Duração no formato: '1d ou 1h ou 1m'
+    #Use 0 para um banimento permanente
+    #A duração não fará efeito nos tipos BAN, BANIP e MUTE (serão sempre permanentes)
+    duracao: "6h"
+  Ofensa_jogador:
+    nome: "Ofensa a jogador"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: TEMP_MUTE
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.tempmute"
+    provas_necessarias: true
+    #Duração no formato: '1d ou 1h ou 1m'
+    #Use 0 para um banimento permanente
+    #A duração não fará efeito nos tipos BAN, BANIP e MUTE (serão sempre permanentes)
+    duracao: "12h"
+  Desinformacao:
+    nome: "Desinformação"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: TEMP_MUTE
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.tempmute"
+    provas_necessarias: true
+    #Duração no formato: '1d ou 1h ou 1m'
+    #Use 0 para um banimento permanente
+    #A duração não fará efeito nos tipos BAN, BANIP e MUTE (serão sempre permanentes)
+    duracao: "12h"
+  Mensagem_fake:
+    nome: "Mensagem fake"
+    #Se quiser usar uma texture, coloque aqui
+    icone: "56b1d4947763917814ae1632b820696098927895aaaf124cd29eb35856aaa5b9"
+    tipo: TEMP_MUTE
+    #Permissão para poder aplicar este tipo de punição (se for "nulo", somente a permissão de punir será necessária)
+    perm: "stormplugins.punish.tempmute"
+    provas_necessarias: true
+    #Duração no formato: '1d ou 1h ou 1m'
+    #Use 0 para um banimento permanente
+    #A duração não fará efeito nos tipos BAN, BANIP e MUTE (serão sempre permanentes)
+    duracao: "6h"
+
+#Configurações das mensagens
+Mensagens:
+  sem_permissao_punir: "&cVocê precisa do cargo &2Moderador &cou superior para isso."
+  sem_permissao_ban: "&cVocê precisa do cargo &2Moderador &cou superior para isso."
+  sem_permissao_banip: "&cVocê precisa do cargo &cAdmin &cou superior para isso."
+  sem_permissao_temp_ban: "&cVocê precisa do cargo &2Moderador &cou superior para isso."
+  sem_permissao_temp_banip: "&cVocê precisa do cargo &cAdmin &cou superior para isso."
+  sem_permissao_mute: "&cVocê precisa do cargo &2Moderador &cou superior para isso."
+  sem_permissao_temp_mute: "&cVocê precisa do cargo &2Moderador &cou superior para isso."
+  sem_permissao_unpunish: "&cVocê precisa do cargo &cAdmin &cou superior para isso."
+  sem_permissao_kick: "&cVocê precisa do cargo &2Moderador &cou superior para isso."
+  sem_permissao_punicoes: "&cVocê precisa do cargo &cAdmin &cou superior para isso."
+  sem_permissao_aviso: "&cVocê precisa do cargo &eAjudante &cou superior para isso."
+  sem_permissao_reports: "&cVocê precisa do cargo &2Moderador &cou superior para isso."
+  jogador_nao_existe: "&cOps! Este jogador não foi encontrado."
+  jogador_ja_possui_punicao_ativa: "&cCalma aí! Este jogador já possui uma punição com este tipo ativa."
+  servidor_nao_encontrado: "&cOps! Este servidor não foi encontrado."
+  prova_invalida: "&cOps! A prova inserida é inválida (Ela deve conter um link)."
+  operacao_cancelada: "&cA operação foi cancelada."
+  ja_editando_prova: "&cCalma aí! Você já está editando uma prova no momento."
+  editando_prova:
+    - ""
+    - " &e&lPUNIÇÃO"
+    - " &fDigite no chat a prova de que deseja adicionar."
+    - " &fCaso queira cancelar, digite &c'cancelar'&f."
+    - ""
+  dados_insuficientes: "&cCalma aí! Você não colocou todos os dados necessários para aplicar a operação."
+  prova_inserida: "&aYeah! A prova foi inserida com sucesso."
+  servidor_selecionado: "&aYeah! O servidor foi selecionado com sucesso."
+  tipo_selecionado: "&aYeah! O tipo da punição foi selecionado com sucesso."
+  motivo_selecionado: "&aYeah! O motivo foi selecionado com sucesso."
+  nao_pode_ser_punido: "&cCalma aí! Este jogador não pode ser punido."
+  nenhuma_punicao: "&cOps! Nenhuma punição ativa foi encontrada."
+  abrir_prova: "&7Clique para abrir a prova"
+  nao_pode_se_reportar: "&cCalma aí! Você não pode denunciar si mesmo."
+  aguarde_para_reportar: "&cCalma aí! Aguarde mais %tempo% para enviar outra denúncia."
+  motivo_nao_encontrado: "&cOps! Este motivo não foi encontrado."
+  denunciou: "&aYeah! A denúncia contra o jogador %jogador% foi enviada com sucesso."
+  nenhuma_denuncia: "&cOps! Nenhuma denúncia foi encontrada."
+  #Disponíveis:
+  # %banidos% - Total de jogadores banidos no dia
+  # %mutados% - Total de jogadores mutados no dia
+  # %avisados% - Total de jogadores avisados no dia
+  # %banimentos% - Total de banimentos no dia
+  # %mutes% - Total de mutes no dia
+  # %jogadores_punidos% - Total de jogadores punidos no dia
+  # %punicoes% - Total de punições no dia
+  # %avisos% - Total de avisos no dia
+  mensagem_punidos:
+    - ""
+    - " &6&lPUNIÇÕES DO DIA"
+    - ""
+    - " &8* &fForam banidos &e%banidos% &fjogadores hoje."
+    - " &8* &fForam mutados &e%mutados% &fjogadores hoje."
+    - " &8* &fForam avisados &e%avisados% &fjogadores hoje."
+    - ""
+    - " &fContinue contribuindo com o nosso servidor, reportando e eliminando os hacks!"
+    - ""
+  anuncio_ban_permanente:
+    - ""
+    - " &c&lPUNIÇÕES"
+    - " &c%jogador% &ffoi punido por &c%autor%"
+    - " &fMotivo: &c%motivo%"
+    - " &fProva: &c%prova%"
+    - " &fDuração: &cPermanentemente"
+    - ""
+  anuncio_ban_temporario:
+    - ""
+    - " &c&lPUNIÇÕES"
+    - " &c%jogador% &ffoi punido por &c%autor%"
+    - " &fMotivo: &c%motivo%"
+    - " &fProva: &c%prova%"
+    - " &fTérmino: &c%expira%"
+    - ""
+  anuncio_mute_permanente:
+    - ""
+    - " &c&lPUNIÇÕES"
+    - " &c%jogador% &ffoi mutado por &c%autor%"
+    - " &fMotivo: &c%motivo%"
+    - " &fProva: &c%prova%"
+    - " &fDuração: &cPermanentemente"
+    - ""
+  anuncio_mute_temporario:
+    - ""
+    - " &c&lPUNIÇÕES"
+    - " &c%jogador% &ffoi mutado por &c%autor%"
+    - " &fMotivo: &c%motivo%"
+    - " &fProva: &c%prova%"
+    - " &fTérmino: &c%expira%"
+    - ""
+  anuncio_despunir:
+    - ""
+    - " &c&lPUNIÇÕES"
+    - " &c%jogador% &ffoi despunido por &c%autor%"
+    - ""
+  anuncio_aviso:
+    - ""
+    - " &c&lAVISOS"
+    - " &c%jogador% &ffoi avisado por &c%autor%"
+    - " &fMotivo: &c%motivo%"
+    - " &fProva: &c%prova%"
+    - " &fAviso: &c#%numero%/%maximo%"
+    - ""
+  mutado_permanentemente:
+    - ""
+    - " &cVocê está mutado permanentemente na rede de servidores."
+    - ""
+    - " &cData: %data%"
+    - " &cID da Punição: &e#%id%"
+    - ""
+    - " &cMotivo: %motivo%"
+    - " &cAutor: %autor%"
+    - " &cProva: %prova%"
+    - ""
+    - " &cSe você acha que isso foi um engano entre em:"
+    - " &estormplugins.com"
+    - ""
+  mutado_temporariamente:
+    - ""
+    - " &cVocê está mutado temporariamente na rede de servidores."
+    - ""
+    - " &cData: %data%"
+    - " &cTérmino: %expira%"
+    - " &cFaltam: %restante%"
+    - " &cID da Punição: &e#%id%"
+    - ""
+    - " &cMotivo: %motivo%"
+    - " &cAutor: %autor%"
+    - " &cProva: %prova%"
+    - ""
+    - " &cSe você acha que isso foi um engano entre em:"
+    - " &estormplugins.com"
+    - ""
+  avisado:
+    - ""
+    - " &cAtenção, você foi avisado por um mebro da equipe."
+    - ""
+    - " &cPrimeiro aviso: %primeiro%"
+    - " &cÚltimo aviso: %ultimo%"
+    - " &cID do aviso: &e#%id%"
+    - ""
+    - " &cMotivo: &c%motivo%"
+    - " &cAutor: %autor%"
+    - " &cProva: &c%prova%"
+    - " &cAviso: &c#%numero%/%maximo%"
+    - ""
+  nova_denuncia:
+    - ""
+    - " &c&lDENÚNCIA"
+    - " &fID: &e#%id%"
+    - " &fJogador denunciado: &e%jogador%"
+    - " &fAutor: &e%autor%"
+    - " &fServidor: &e%servidor%"
+    - " &fMotivo: &e%motivo%"
+    - " &fPrimeira denúncia: &e%primeira%"
+    - " &fÚltima denúncia: &e%ultima%"
+    - ""
+
+#Mensagens quando o jogador é kickado
+Kicks:
+  banido_permanentemente:
+    - "&c&lSTORM PLUGINS"
+    - ""
+    - "&cVocê está banido permanentemente da rede de servidores."
+    - ""
+    - "&cServidor: %servidor%"
+    - "&cData: %data%"
+    - "&cID da Punição: &e#%id%"
+    - ""
+    - "&cMotivo: %motivo%"
+    - "&cAutor: %autor%"
+    - "&cProva: %prova%"
+    - ""
+    - "&cAcesse: &estormplugins.com &cpara recorrer à punição."
+  banido_temporariamente:
+    - "&c&lSTORM PLUGINS"
+    - ""
+    - "&cVocê está banido temporariamente da rede de servidores."
+    - ""
+    - "&cServidor: %servidor%"
+    - "&cData: %data%"
+    - "&cTérmino: %expira%"
+    - "&cFaltam: %restante%"
+    - "&cID da Punição: &e#%id%"
+    - ""
+    - "&cMotivo: %motivo%"
+    - "&cAutor: %autor%"
+    - "&cProva: %prova%"
+    - ""
+    - "&cAcesse: &estormplugins.com &cpara recorrer à punição."
+  kick:
+    - "&c&lSTORM PLUGINS"
+    - ""
+    - "&cVocê foi expulso da rede servidores."
+    - ""
+    - "&cMotivo: %motivo%"
+    - "&cAutor: %autor%"
+    - ""
+    - "&cAcha que foi injusto? Acesse: &estormplugins.com"

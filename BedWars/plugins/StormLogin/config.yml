@@ -1,0 +1,234 @@
+#  _____ _______ ____  _____  __  __ _      ____   _____ _____ _   _
+# / ____|__   __/ __ \|  __ \|  \/  | |    / __ \ / ____|_   _| \ | |
+#| (___    | | | |  | | |__) | \  / | |   | |  | | |  __  | | |  \| |
+# \___ \   | | | |  | |  _  /| |\/| | |   | |  | | | |_ | | | | . ` |
+# ____) |  | | | |__| | | \ \| |  | | |___| |__| | |__| |_| |_| |\  |
+#|_____/   |_|  \____/|_|  \_\_|  |_|______\____/ \_____|_____|_| \_|
+#
+# Desenvolvedor: Domeneghi
+# Discord: Domeneghi#5371
+# Versão: 1.3.1
+# Site: https://stormplugins.com
+#
+# Permissões:
+# - cmd.ls (login staff)
+# - cmd.unregister (/unregister e /unregisterstaff)
+#
+
+#Configurações do MySQL (necessário)
+MySQL:
+  # false = usar SQLite
+  # true = usar MySQL
+  ativado: false
+  host: eu2-free.falixserver.net
+  port: 3306
+  user: u1513060_S14iMwBzGb
+  db: s1513060_bccbfbb0e705
+  pass: "D1@5Iboe1ZuFPM=30t8.bRuU"
+
+#Configurações do Discord
+Discord:
+  ativado: true
+  #Configurações do BOT
+  bot:
+    token: "MTMwMjA1MTkxMDE3MzU4OTU5NA.Gl28A0.TyFaZMzCavlL4mOLlNv2uAYEIKgbctxuQzU3YM"
+    status: "Sistema de Autenticação!"
+    guild_id: "1295484761715904564"
+  #Link do servidor do Discord
+  discord_servidor: "https://discord.gg/rK6yuSFb94"
+
+#Configurações do e-mail
+Email:
+  ativado: false
+  host: "HOST SMTP"
+  porta: "465"
+  usuario: "O EMAIL"
+  senha: "A SENHA DO EMAIL"
+
+#Configurações gerais
+Geral:
+  #Modos disponíveis
+  # 1 - Servidor de autenticação/login
+  # 2 - Servidor de suporte
+  modo: 1
+  #Ativar o modo bungeecord
+  bungeecord: false
+  #Esta opção só é válida para o modo bungeecord ativado (o seu tokens estará disponível no arquivo token.yml na pasta do plugin no bungeecord)
+  tokens_permitidos: []
+  #Tipo de criptografia para as senhas
+  #Disponíveis: MD_5, SHA256, SHA512, BCRYPT
+  criptografia: "BCRYPT"
+  #Tempo para se autenticar (em segundos)
+  tempo_autenticar: 60
+  #O máximo de contas permitidas por ip (Use -1 para desativar)
+  max_contas_ip: 4
+  #Máximo de tentativas de login até o player ser kickado
+  tentativas: 3
+  #Captchas disponíveis:
+  # 0 - Desativar captcha
+  # 1 - Captcha com cabeças
+  # 2 - Captcha com mapa
+  captcha: 1
+  #Ativar/desativar o loginstaff
+  loginstaff: true
+  #Cores dos embeds do
+  embeds_cores:
+    vinculado: "#ff00ff"
+    codigo: "#00ffff"
+    aprovar_login: "#00ffff"
+    aprovou_login: "#008000"
+    negou_login: "#ff0000"
+    recuperar: "#00ffff"
+
+#Configurações dos captchas
+Captchas:
+  mapa:
+    quantidade_mapas: 1000 #(Não use valores muito altos para a quantidade de mapas | recomendado: entre 25 e 1000)
+    #Tamanho do código (5 = 5 letras)
+    tamanho: 5
+
+#Configurações do sistema de sessão
+Sessao:
+  ativado: true
+  #Duração total da sessão para que o jogador tenha que fazer login novamente
+  tempo: 5
+  #Tipos disponíveis: SEGUNDOS, MINUTOS, HORAS, DIAS
+  tipo: "MINUTOS"
+
+#Permitir somente certos países de entrar no servidor
+Bloquear_paises:
+  ativado: false
+  permitidos:
+    - "BR"
+    - "PT"
+
+#Configurações do BungeeCord
+Bungeecord:
+  #Redirecionar para um servidor após o login
+  redirecionar_apos_login:
+    ativado: false
+    #Delay para redirecionar o jogador (em segundos)
+    delay: 0.5
+    #Nome do servidor igual nas configurações do bungeecord
+    #Se você tiver vários lobbies, coloque todos, pois o plugin escolherá um aleatório
+    servidor:
+      - "lobby"
+
+#Mensagens que aparecem no chat
+Mensagens:
+  sessao_retomada: "&aSua sessão foi retomada com sucesso."
+  codigo_incorreto: "&cEsse código está incorreto. Você possui %tentativas% tentativas restantes."
+  registrar: "&eUtilize '/register <senha> <confirmar senha>'."
+  logar: "&eUtilize '/login <senha>'."
+  operacao_cancelada: "&cA operação foi cancelada."
+  discord_nao_encontrado: "&cEssa conta do Discord não foi encontrada."
+  nao_esta_no_discord: "&cVocê deve estar em nosso servidor do Discord para vincular sua conta."
+  discord_e_um_bot: "&cEssa conta do Discord pertence a um BOT e, portanto, não pode ser vinculada."
+  vinculando_discord:
+    - " "
+    - " &aDigite no chat o código enviado à sua conta do Discord para completar a verificação."
+    - " "
+  codigo_vincular_incorreto: "&cVocê inseriu o código incorretamente. A operação foi cancelada."
+  discord_vinculado: "&aSua conta do Discord foi vinculada com sucesso."
+  email_invalido: "&cEsse endereço de e-mail é inválido."
+  vinculando_email:
+    - " "
+    - " &aDigite no chat o código enviado ao seu e-mail para completar a verificação."
+    - " "
+  email_vinculado: "&aSeu endereço de e-mail foi vinculado com sucesso."
+  autenticado: "&aAutenticado com sucesso."
+  completar_captcha_cabecas: "&aClique aqui para completar o captcha."
+  completar_captcha_mapa:
+    - " "
+    - " &aDigite no chat o código do captcha presente no mapa."
+    - " "
+  ja_autenticado: "&cVocê já está autenticado."
+  sintaxe: "&cUtilize '%comando%'."
+  precisa_se_registrar: "&cVocê precisa se registrar primeiro."
+  senha_incorreta: "&cEssa senha está incorreta. Você possui %tentativas% tentativas restantes. Caso tenha esquecido sua senha, digite '/recuperarsenha'."
+  recomendado_vincular_conta:
+    - " "
+    - " &cDetectamos que você ainda não adicionou um segundo login."
+    - " &cÉ recomendado que você vincule uma conta usando '/vincular'."
+    - " "
+  login_discord:
+    - " "
+    - " &aVerifique a sua conta do Discord vinculada para efetuar o login."
+    - " "
+  login_email:
+    - " "
+    - " &aVerifique o seu e-mail vinculado para efetuar o login."
+    - " &aDigite no chat o código enviado."
+    - " "
+  erro_enviar_login: "&cNão foi possível enviar a solicitação de login à sua conta vinculada."
+  logar_staff: "&bUtilize '/loginstaff <senha>'."
+  registrar_staff: "&bUtilize '/registerstaff <senha> <confirmar senha>'."
+  precisa_se_autenticar: "&cVocê precisa se autenticar primeiro."
+  senha_staffer_incorreta: "&cEssa senha está incorreta. Você possui %tentativas% tentativas restantes."
+  senha_atual_incorreta: "&cSua senha atual não é essa."
+  senha_invalida_muitos_caracteres: "&cSua senha não pode ter mais do que 16 caracteres."
+  senha_invalida_poucos_caracteres: "&cA sua senha precisa ter pelo menos 6 caracteres."
+  senha_invalida_nick: "&cVocê não pode utilizar seu nick como senha."
+  sem_segundo_login_recuperar: "&cVocê precisa estar utilizando um método de verificação em duas etapas para recuperar sua senha."
+  codigo_ja_enviado: "&cUm código já foi enviado à sua conta vinculada."
+  erro_enviar_codigo: "&cNão foi possível enviar o código de recuperação à sua conta vinculada."
+  recuperar_discord:
+    - " "
+    - " &aUm código foi enviado à sua conta do Discord vinculada."
+    - " &aDigite '/recuperarsenha <código enviado> <nova senha>'."
+    - " "
+  recuperar_email:
+    - " "
+    - " &aUm código foi enviado ao seu e-mail vinculado."
+    - " &aDigite '/recuperarsenha <código enviado> <nova senha>'."
+    - " "
+  ja_registrado: "&cVocê já está registrado."
+  senhas_nao_coincidem: "&cAs senhas não coincidem."
+  registrado: "&aRegistrado com sucesso."
+  nao_possui_conta_vinculada: "&cVocê ainda não possui uma conta vinculada."
+  toggle_duas_etapas: "&eVocê %status% a verificação em duas etapas com o %tipo%."
+  discord_servidor: "&eNosso discord é: %discord%"
+  ja_vinculando: "&cVocê já está vinculando uma conta no momento."
+  vincular_discord:
+    - " "
+    - " &aDigite o id da conta do Discord que deseja vincular."
+    - " &aPara obter seu id, vá em configurações - minha conta e clique em 'copiar id'"
+    - " &cOBS: &aÉ necessário ter a opção de desenvolvedor ativada."
+    - " &7Caso queira cancelar, digite '&ccancelar&7'."
+    - " "
+  vincular_email:
+    - " "
+    - " &aDigite o endereço de e-mail que deseja vincular."
+    - " &7Caso queira cancelar, digite '&ccancelar&7'."
+    - " "
+
+#Mensages que aparecem na tela (se \n para a linha de baixo)
+Titles:
+  sessao_retomada: "&e&lHEAT MC\n&fSua sessão foi retomada"
+  captcha_iniciado: "&e&lHEAT MC\n&fComplete o captcha"
+  codigo_incorreto: "&e&lHEAT MC\n&fCódigo &c(tentativa %tentativa% de %total%)"
+  registrar: "&e&lHEAT MC\n&fUtilize /register <senha> <confirmar senha>"
+  logar: "&e&lHEAT MC\n&fUtilize /login <senha>"
+  autenticado: "&a&lAUTENTICADO\n&fBom jogo."
+  senha_incorreta: "&e&lHEAT MC\n&f/login <senha> &c(tentativa %tentativa% de %total%)"
+  login_discord: "&e&lHEAT MC\n&fFaça login com o Discord"
+  login_email: "&e&lHEAT MC\n&fFaça login com o e-mail"
+  logar_staff: "&e&lHEAT MC\n&fUtilize /loginstaff <senha>"
+  registrar_staff: "&e&lHEAT MC\n&fUtilize /registerstaff <senha> <confirmar senha>"
+  senha_staffer_incorreta: "&e&lHEAT MC\n&f/loginstaff <senha> &c(tentativa %tentativa% de %total%)"
+  registrado: "&a&lREGISTRADO\n&fBom jogo."
+
+#Mensagens que aparecem na action bar
+Action_bar:
+  tempo_autenticar: "&cVocê possui %tempo% segundos para se autenticar."
+
+#Mensagens quando o jogador é bloqueado de entrar no servidor
+Kicks:
+  pais_bloqueado: "&c&lHEAT MC&r\n &r\n&cO seu país está bloqueado nesse servidor."
+  max_contas: "&c&lHEAT MC&r\n &r\n&cVocê atingiu o máximo de contas cadastradas nesse ip."
+  demorou_autenticar: "&c&lHEAT MC&r\n &r\n&cVocê demorou muito para se autenticar."
+  codigo_incorreto: "&c&lHEAT MC&r\n &r\n&cVocê inseriu o código incorretamente %tentativas% vezes."
+  captcha_incorreto: "&c&lHEAT MC&r\n &r\n&cCaptcha incorreto... \n&cTente novamente..."
+  senha_incorreta: "&c&lHEAT MC&r\n &r\n&cVocê inseriu a senha incorretamente %tentativas% vezes."
+  senha_alterada: "&c&lHEAT MC&r\n &r\n§cSua senha foi alterada.\n \n&cPor favor, relogue."
+  login_negado: "&c&lHEAT MC&r\n &r\n&cO seu login foi negado."

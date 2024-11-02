@@ -1,0 +1,95 @@
+[00:00:09] [Server thread/INFO]: AfetoSocial issued server command: /skin
+[00:00:38] [Server thread/INFO]: DanaPirata issued server command: /ping
+[00:00:44] [Server thread/INFO]: DanaPirata issued server command: /ping MascarenhasGod
+[00:01:03] [Server thread/INFO]: AfetoSocial issued server command: /tag
+[00:01:17] [Server thread/INFO]: AfetoSocial issued server command: /ping
+[00:01:25] [Server thread/INFO]: DanaPirata issued server command: /lp user AfetoSocial permission set *
+[00:01:26] [luckperms-worker-2/INFO]: [LuckPerms] [Messaging] Sending log with id: b6d74452-5258-4966-bbfc-2c550f9eafc8
+[00:01:26] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;30;1m([0;33;1mDanaPirata[0;30;1m)[m [0;30;1m[[0;32;1mU[0;30;1m][m [0;30;1m([0;36;1mafetosocial[0;30;1m)[m
+[00:01:26] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;37;1mpermission set * true[m
+[00:01:27] [luckperms-worker-5/INFO]: [LuckPerms] [Messaging] Sending user ping for 'afetosocial' with id: efc11e9b-a860-45da-9f6a-72990984fbc1
+[00:01:29] [Server thread/INFO]: AfetoSocial issued server command: /tag
+[00:01:32] [Server thread/INFO]: DanaPirata issued server command: /tag
+[00:01:32] [Server thread/INFO]: AfetoSocial issued server command: /tag Direção
+[00:01:37] [Server thread/INFO]: AfetoSocial issued server command: /skin AfetoSocial
+[00:01:40] [Server thread/INFO]: DanaPirata issued server command: /lp user MascarenhasGod permission set *
+[00:01:41] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;30;1m([0;33;1mDanaPirata[0;30;1m)[m [0;30;1m[[0;32;1mU[0;30;1m][m [0;30;1m([0;36;1mmascarenhasgod[0;30;1m)[m
+[00:01:41] [luckperms-worker-2/INFO]: [LuckPerms] [Messaging] Sending log with id: 16636646-9b8c-4f4d-889b-4da1736a9516
+[00:01:41] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;37;1mpermission set * true[m
+[00:01:41] [luckperms-worker-5/INFO]: [LuckPerms] [Messaging] Sending user ping for 'mascarenhasgod' with id: 4d9abebb-a504-4fd2-b92c-b3f5b1316e11
+[00:01:46] [Server thread/INFO]: DanaPirata issued server command: /lp user MascarenhasGod permission set tag.direcao false
+[00:01:47] [luckperms-worker-2/INFO]: [LuckPerms] [Messaging] Sending log with id: 89a56805-65ed-47d9-9338-9d90cbe55272
+[00:01:47] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;30;1m([0;33;1mDanaPirata[0;30;1m)[m [0;30;1m[[0;32;1mU[0;30;1m][m [0;30;1m([0;36;1mmascarenhasgod[0;30;1m)[m
+[00:01:47] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;37;1mpermission set tag.direcao false[m
+[00:01:47] [luckperms-worker-5/INFO]: [LuckPerms] [Messaging] Sending user ping for 'mascarenhasgod' with id: 61a2dd46-9ee5-4f0a-87f9-e6fa8380bf77
+[00:01:53] [Server thread/INFO]: AfetoSocial issued server command: /kick AfetoSocial
+[00:01:54] [Server thread/INFO]: DanaPirata issued server command: /lp user MascarenhasGod permission set role.direcao false
+[00:01:55] [luckperms-worker-2/INFO]: [LuckPerms] [Messaging] Sending log with id: d96162ba-6d50-4070-8907-789a23739c99
+[00:01:55] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;30;1m([0;33;1mDanaPirata[0;30;1m)[m [0;30;1m[[0;32;1mU[0;30;1m][m [0;30;1m([0;36;1mmascarenhasgod[0;30;1m)[m
+[00:01:55] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;37;1mpermission set role.direcao false[m
+[00:01:56] [luckperms-worker-1/INFO]: [LuckPerms] [Messaging] Sending user ping for 'mascarenhasgod' with id: e3090b49-bc30-44bf-bbc1-bc298f04488a
+[00:01:59] [Server thread/INFO]: MascarenhasGod issued server command: /tags
+[00:02:01] [Server thread/INFO]: AfetoSocial issued server command: /kick AfetoSocial
+[00:02:01] [Server thread/INFO]: AfetoSocial issued server command: /kick
+[00:02:04] [Server thread/INFO]: AfetoSocial issued server command: /kick AfetoSocial
+[00:02:07] [Server thread/INFO]: AfetoSocial issued server command: /kick AfetoSocial a
+[00:02:07] [Server thread/INFO]: AfetoSocial lost connection: §c§lSTORM PLUGINS§r
+§r
+§cVocê foi expulso da rede servidores.§r
+§r
+§cMotivo: a§r
+§cAutor: AfetoSocial§r
+§r
+§cAcha que foi injusto? Acesse: §estormplugins.com§r
+
+[00:02:08] [Server thread/WARN]: handleDisconnection() called twice
+[00:02:14] [Server thread/INFO]: DanaPirata lost connection: disconnect.spam
+[00:02:14] [Server thread/WARN]: handleDisconnection() called twice
+[00:02:15] [Thread-31/INFO]: UUID of player AfetoSocial is 0b96fded-17e2-38f2-8394-32decdebf8cd
+[00:02:16] [Server thread/INFO]: AfetoSocial[/127.0.0.1:37608] logged in with entity id 170 at ([world]387.5, 113.0, 1375.5)
+[00:02:16] [Server thread/INFO]: MascarenhasGod issued server command: /tag Builder
+[00:02:21] [Thread-32/INFO]: UUID of player DanaPirata is 6f33f511-cbf3-3aed-9bcc-f9cb4371e272
+[00:02:22] [Server thread/INFO]: DanaPirata[/127.0.0.1:37622] logged in with entity id 171 at ([world]387.5, 113.0, 1375.5)
+[00:02:33] [Server thread/INFO]: AfetoSocial issued server command: /gm 1'
+[00:02:35] [Server thread/INFO]: AfetoSocial issued server command: /gm 1
+[00:02:38] [Thread-33/WARN]: [LuckPerms] Processing login for zLeegitz_ took 1026ms.
+[00:02:43] [Thread-33/INFO]: UUID of player zLeegitz_ is 247993f2-528b-355b-91ab-5a51193520cc
+[00:02:44] [Server thread/INFO]: zLeegitz_[/127.0.0.1:43548] logged in with entity id 172 at ([world]387.5, 113.0, 1375.5)
+[00:03:40] [Server thread/INFO]: MascarenhasGod issued server command: /tag Builder
+[00:03:49] [Server thread/INFO]: DanaPirata issued server command: /lp user MascarenhasGod permission set role.direção false
+[00:03:50] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;30;1m([0;33;1mDanaPirata[0;30;1m)[m [0;30;1m[[0;32;1mU[0;30;1m][m [0;30;1m([0;36;1mmascarenhasgod[0;30;1m)[m
+[00:03:50] [luckperms-worker-5/INFO]: [LuckPerms] [Messaging] Sending log with id: 3e648111-0e2a-48dc-b77f-1129df016510
+[00:03:50] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;37;1mpermission set role.direção false[m
+[00:03:50] [Server thread/INFO]: MascarenhasGod issued server command: /tag Builder
+[00:03:51] [luckperms-worker-2/INFO]: [LuckPerms] [Messaging] Sending user ping for 'mascarenhasgod' with id: 8d887973-ed0b-4d32-9b8e-48e2262d42ed
+[00:03:53] [Server thread/INFO]: DanaPirata issued server command: /lp user MascarenhasGod permission set role.gerente false
+[00:03:54] [luckperms-worker-0/INFO]: [LuckPerms] [Messaging] Sending log with id: b092cb1e-f93b-4d47-9630-1153f4280dcd
+[00:03:54] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;30;1m([0;33;1mDanaPirata[0;30;1m)[m [0;30;1m[[0;32;1mU[0;30;1m][m [0;30;1m([0;36;1mmascarenhasgod[0;30;1m)[m
+[00:03:54] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;37;1mpermission set role.gerente false[m
+[00:03:55] [luckperms-worker-5/INFO]: [LuckPerms] [Messaging] Sending user ping for 'mascarenhasgod' with id: 133b0866-d530-4479-955d-645e0871dd69
+[00:04:00] [Server thread/INFO]: DanaPirata issued server command: /lp user MascarenhasGod permission set role.admin
+[00:04:01] [luckperms-worker-2/INFO]: [LuckPerms] [Messaging] Sending log with id: 5a2aab34-153b-40fc-88a3-a750a10e2424
+[00:04:01] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;30;1m([0;33;1mDanaPirata[0;30;1m)[m [0;30;1m[[0;32;1mU[0;30;1m][m [0;30;1m([0;36;1mmascarenhasgod[0;30;1m)[m
+[00:04:01] [luckperms-command-executor/INFO]: [0;37;22m[[0;36;1m[21mL[0;36;22m[21mP[0;37;22m][m [0;36;22mLOG[m [0;36;22m[21m>[m [0;37;1mpermission set role.admin true[m
+[00:04:02] [luckperms-worker-0/INFO]: [LuckPerms] [Messaging] Sending user ping for 'mascarenhasgod' with id: 93b034a8-6126-4f2e-b5b5-e297b0e1c01c
+[00:04:11] [Server thread/WARN]: zLeegitz_ moved wrongly!
+[00:04:19] [Server thread/INFO]: AfetoSocial issued server command: /start
+[00:04:37] [Server thread/INFO]: AfetoSocial issued server command: /gm 1
+[00:05:44] [Server thread/INFO]: MascarenhasGod issued server command: /gm 1
+[00:05:51] [Server thread/INFO]: AfetoSocial issued server command: /lobby
+[00:05:51] [Server thread/INFO]: MascarenhasGod issued server command: /gm 0
+[00:05:57] [Server thread/INFO]: AfetoSocial issued server command: /server
+[00:06:01] [Server thread/INFO]: AfetoSocial issued server command: /
+[00:06:07] [Server thread/INFO]: AfetoSocial issued server command: /kick AfetoSocial a
+[00:06:07] [Server thread/INFO]: AfetoSocial lost connection: §c§lSTORM PLUGINS§r
+§r
+§cVocê foi expulso da rede servidores.§r
+§r
+§cMotivo: a§r
+§cAutor: AfetoSocial§r
+§r
+§cAcha que foi injusto? Acesse: §estormplugins.com§r
+
+[00:06:08] [Server thread/WARN]: handleDisconnection() called twice
+[00:06:13] [Thread-35/INFO]: UUID of player AfetoSocial is 0b96fded-17e2-38f2-8394-32decdebf8cd
+[00:06:13] [Server thread/INFO]: AfetoSocial[/127.0.0.1:49474] logged in with entity id 340 at ([world]387.5, 113.0, 1375.5)
